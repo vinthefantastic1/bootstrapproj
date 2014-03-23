@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<script src ="jquery-1.9.1.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+
+<div id="info1">
+</div>
+
+<div class="container">
+    <h2>progress bar testing page</h2>
+
+    <div class="row col-md-6">
+
+
+        <div id ="progress1" class="progress progress-striped active">
+            <div class="bar progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+            <span class="sr-only">45% Complete</span>
+            </div>
+        </div>
+
+
+        <div id ="progress2" class="progress progress-striped active">
+            <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            <span class="sr-only">Working</span>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+  
+  
+<script>
+
+    $(document).ready(function () {
+        console.log("ready!");
+      var $bar = $('#progress1');
+        $("#info1").html($bar.width());
+
+    });
+
+
+
+    var progress = setInterval(function () {
+        var $bar = $('.bar');
+        if ($bar.width() == $("#progress1").width()) {
+            clearInterval(progress);
+            $('.progress').removeClass('active');
+        } else {
+            $bar.width($bar.width() + 10);
+        }
+      //  $bar.text($bar.width() / 4 + "%");
+      //  $bar.text("working,,);
+    }, 800);
+
+</script>
+</html>

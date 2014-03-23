@@ -7,69 +7,135 @@
 
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 
+<a href="progressbar.html">Progress bar</a>
 
-
-    <div class="container">
-        <h2>testing page</h2>
-
-                     <div class="row col-md-10">
-            <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-    <span class="sr-only">60% Complete</span>
-  </div>
+<div id="info1">
 </div>
 
-    <div class="progress progress-striped active">
+<div class="container">
+    <h2>testing page</h2>
+
+    <div class="row col-md-6">
+        <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <span class="sr-only">60% Complete</span>
+        </div>
+        </div>
+
+        <div class="progress progress-striped active">
         <div class="bar" style="width: 0%;"></div>
-    </div>
+        </div>
 
-                         <div class="progress progress-striped active">
-  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-    <span class="sr-only">45% Complete</span>
-  </div>
-</div>
+        <div id ="progress1" class="progress progress-striped active">
+            <div class="bar progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+            <span class="sr-only">45% Complete</span>
+            </div>
+        </div>
+
 
     </div>
 
         <div class="row col-md-4">
-    <table class="table table-condensed">
-        <thead><tr><th>test1</th><th>test2</th></tr></thead>
-   <tr><td>Test1</td><td>Test2</td></tr> 
-   <tr><td>Test1111</td><td>Test2222</td></tr> 
-          <tr><td>Test1111</td><td>Test2222 ref gfdgf gdfg f gf</td></tr> 
-    </table>
-            </div>
-       <div class="row col-md-4">
-    <div id="box" style="border: solid red 1px">this box is red and grows</div>
-            </div>
+            <table class="table table-condensed">
+           <tr>
+	<th>fname</th>
+	<th>lname</th>
+</tr>
+<tr>
+	<td>Caldwell</td>
+	<td>Margaret</td>
+</tr>
+<tr>
+	<td>Ulysses</td>
+	<td>Zahir</td>
+</tr>
+<tr>
+	<td>Declan</td>
+	<td>Josephine</td>
+</tr>
+<tr>
+	<td>Zeus</td>
+	<td>Leroy</td>
+</tr>
+<tr>
+	<td>Armand</td>
+	<td>Justine</td>
+</tr>
+<tr>
+	<td>Judah</td>
+	<td>Oren</td>
+</tr>
+<tr>
+	<td>Walker</td>
+	<td>Guinevere</td>
+</tr>
+<tr>
+	<td>Nasim</td>
+	<td>Virginia</td>
+</tr>
+<tr>
+	<td>Harper</td>
+	<td>Gloria</td>
+</tr>
+<tr>
+	<td>Mannix</td>
+	<td>Rajah</td>
+</tr>
+<tr>
+	<td>Barrett</td>
+	<td>Alden</td>
+</tr>
+<tr>
+	<td>Wylie</td>
+	<td>Gretchen</td>
+</tr>
+<tr>
+	<td>Hop</td>
+	<td>Griffith</td>
+</tr>
 
-  
-
+            </table>
+        </div>
+        <div class="row col-md-4">
+          <div id="box" style="border: solid red 1px">this box is red and grows</div>
         </div>
 
+
+  <div class="row col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">This is a panel</div>
+        </div>
+    </div>
+        </div>
+</div>
+
+  
   
 <script>
 
- 
+    $(document).ready(function () {
+        console.log("ready!");
+             var $bar = $('#progress1');
+        $("#info1").html($bar.width());
 
-  $( document ).ready(function() {
-    console.log( "ready!" );
-	 $("#box").animate({height:"300px"});
-});
+        $("#box").animate({ height: "300px" });
+    });
 
 
 
-    var progress = setInterval(function() {
-    var $bar = $('.bar');
-    
-    if ($bar.width()==400) {
-        clearInterval(progress);
-        $('.progress').removeClass('active');
-    } else {
-        $bar.width($bar.width()+40);
-    }
-    $bar.text($bar.width()/4 + "%");
-}, 800);
+    var progress = setInterval(function () {
+        var $bar = $('.bar');
+//            $("#info1").html($bar.width());
+        if ($bar.width() == $("#progress1").width()) {
+            clearInterval(progress);
+            $('.progress').removeClass('active');
+        } else {
+            $bar.width($bar.width() + 10);
+        }
+      //  $bar.text($bar.width() / 4 + "%");
+    }, 800);
 
+    //$(".bar").css("width", "50%");
 </script>
 </html>
