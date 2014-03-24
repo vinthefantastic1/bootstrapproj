@@ -4,6 +4,13 @@
 <script src ="jquery-1.9.1.js"></script>
 <script src="bootstrap/js/bootstrap.js"></script>
 
+<link href="bootstrap/css/bootstrap.css" />
+
+<link href="bootstrap-switch.css" />
+
+<script src ="bootbox.js"></script>
+<script src="bootstrap-switch.js"></script>
+
 
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 
@@ -15,7 +22,12 @@
 <div class="container">
     <h2>testing page</h2>
 
+    <input id="mycheckbox1" type="checkbox" checked data-on-color="primary" data-off-color="info">
+
+
     <div class="row col-md-6">
+        <a id ="btn1" class="btn btn-primary">Click me!</a>
+
         <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
         <span class="sr-only">60% Complete</span>
@@ -116,10 +128,72 @@
 
     $(document).ready(function () {
         console.log("ready!");
-             var $bar = $('#progress1');
+
+
+        $("#mycheckbox1").bootstrapSwitch();
+
+        var $bar = $('#progress1');
         $("#info1").html($bar.width());
 
         $("#box").animate({ height: "300px" });
+
+     //   $.bootstrapGrowl("My message");
+
+        bootbox.alert("Bootbox is pretty cool. A ton better than having to use the bootstrap code.");
+
+
+
+        //   bootbox.confirm("Are you sure?", function (result) {
+        //     console.log("Confirm result: " + result);
+        //        });
+
+        if (1 == 2) {
+
+        bootbox.prompt("What is your name?", function (result) {
+            if (result === null) {
+                console.log("Prompt dismissed");
+            } else {
+                bootbox.alert("Hi <b>" + result + "</b>");
+            }
+        });
+
+
+
+     
+            bootbox.dialog({
+                message: "I am a custom dialog",
+                title: "Custom title",
+                buttons: {
+                    success: {
+                        label: "Success!",
+                        className: "btn-success",
+                        callback: function () {
+                            console.log("great success");
+                        }
+                    },
+                    danger: {
+                        label: "Danger!",
+                        className: "btn-danger",
+                        callback: function () {
+                            console.log("uh oh, look out!");
+                        }
+                    },
+                    main: {
+                        label: "Click ME!",
+                        className: "btn-primary",
+                        callback: function () {
+                            console.log("Primary button");
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+
+
+
     });
 
 
@@ -137,5 +211,12 @@
     }, 800);
 
     //$(".bar").css("width", "50%");
+
+
+
+
+   
+
+
 </script>
 </html>
