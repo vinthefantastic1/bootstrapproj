@@ -7,6 +7,9 @@
 <link href="bootstrap/css/bootstrap.css" />
 
 <link href="bootstrap-switch.css" />
+<link href="bootstrap-datetimepicker.min.css" />
+
+<script src="bootstrap-datetimepicker.min.js"></script>
 
 <script src ="bootbox.js"></script>
 <script src="bootstrap-switch.js"></script>
@@ -18,6 +21,25 @@
 
 <div id="info1">
 </div>
+
+
+<div class="well">
+  <div id="datetimepicker1" class="input-append date">
+    <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            language: 'pt-BR'
+        });
+    });
+</script>
 
 <div class="container">
     <h2>testing page</h2>
@@ -130,6 +152,13 @@
         console.log("ready!");
 
 
+        $('#btn1').on('click', function (e) {
+
+            bootbox.alert("you clicked me!");
+
+        })
+
+
         $("#mycheckbox1").bootstrapSwitch();
 
         var $bar = $('#progress1');
@@ -137,7 +166,7 @@
 
         $("#box").animate({ height: "300px" });
 
-     //   $.bootstrapGrowl("My message");
+        //   $.bootstrapGrowl("My message");
 
         bootbox.alert("Bootbox is pretty cool. A ton better than having to use the bootstrap code.");
 
@@ -149,17 +178,17 @@
 
         if (1 == 2) {
 
-        bootbox.prompt("What is your name?", function (result) {
-            if (result === null) {
-                console.log("Prompt dismissed");
-            } else {
-                bootbox.alert("Hi <b>" + result + "</b>");
-            }
-        });
+            bootbox.prompt("What is your name?", function (result) {
+                if (result === null) {
+                    console.log("Prompt dismissed");
+                } else {
+                    bootbox.alert("Hi <b>" + result + "</b>");
+                }
+            });
 
 
 
-     
+
             bootbox.dialog({
                 message: "I am a custom dialog",
                 title: "Custom title",
